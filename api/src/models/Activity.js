@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('Activity',{
+    sequelize.define('activity',{
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         difficulty: {
-            type: DataTypes.FLOAT(1),
+            type: DataTypes.FLOAT,
             allowNull: false,
             validate: {
                 min: 1,
@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
             }
         },
         duration: {
-            type: DataTypes.INTEGER(2),
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 min: 0,
