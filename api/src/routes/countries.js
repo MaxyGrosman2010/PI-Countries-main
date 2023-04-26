@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {postCountry} = require('../handlers/handleCountries');
+const {getCountryQuery, getCountryByID} = require('../handlers/handleCountries');
 
-router.post('post/', postCountry);
+router.get('/', getCountryQuery);
+router.get('/:idPais', getCountryByID);
 
 module.exports = router;

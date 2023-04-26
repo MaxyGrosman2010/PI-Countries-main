@@ -1,6 +1,6 @@
 const {Country} = require('../db');
 
-const createUser = async(id, name, flagImage, continent, capital, subRegion, area, population) =>
-await Country.create({id, name, flagImage, continent, capital, subRegion, area, population});
+const createCountries = async(array) =>
+await Country.bulkCreate(array);
 
-module.exports = createUser;
+module.exports = createCountries;

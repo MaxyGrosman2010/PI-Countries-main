@@ -7,13 +7,14 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.STRING(3),
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    flagImage: {
+    flag: {
       type: DataTypes.STRING,
       allowNull: false,
       validation: {
@@ -25,10 +26,10 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     capital: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     },
-    subRegion: {
+    sub_region: {
       type: DataTypes.STRING
     },
     area: {
@@ -40,3 +41,4 @@ module.exports = (sequelize) => {
     }
   }, {timestamps: false});
 };
+//To see table properly SET client_encoding TO 'UTF8';

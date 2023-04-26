@@ -6,7 +6,8 @@ module.exports = (sequelize) => {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         name:{
             type: DataTypes.STRING,
@@ -24,8 +25,8 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                min: 0,
-                max: 23
+                min: 1,
+                max: 24
             }
         },
         season: {
