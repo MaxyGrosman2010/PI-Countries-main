@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {getCountryQuery, getCountryByID} = require('../handlers/handleCountries');
+const {getAllCountries, getCountryQuery, getCountryByID} = require('../handlers/handleCountries');
 
-router.get('/', getCountryQuery);
+router.get('/', getAllCountries)
+router.get('/name', getCountryQuery);
 router.get('/:idPais', getCountryByID);
 
 module.exports = router;
