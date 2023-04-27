@@ -25,8 +25,10 @@ async function getCountryQuery(req, res){
         const {name} = req.query;
         //Looks if name has value
         if(!name) return res.status(STATUS_ERROR).json({error: "The require information is missing"});
+        
         //Finds the countries name and returns it
         const countries = await findCountries(name);
+        
         return res.status(STATUS_OK).json(countries);
 
     }catch(error){res.status(SERVER_ERROR).json({error: error.message})};
