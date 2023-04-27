@@ -1,15 +1,15 @@
 require('dotenv').config();
 const {STATUS_OK, STATUS_ERROR, SERVER_ERROR} = process.env;
-const {Country} = require('../db');
-const {findCountries} = require('../controllers/index');
+const {findCountries, findCountry, findAllCountries, 
+    obtainCountriesActivities} = require('../controllers/index');
 
 async function getAllCountries(req, res){
     try{
         //Finds all countries
-        const countries = await Country.findAll();
+        const countries = await findAllCountries();
 
         //If there is an error and doesn't find then
-        if(!countries) return res.status(STATUS_ERROR).json({error: "Error countries weren't found"});
+        if(!countries) return res.status(STATUS_ERROR).json({error: "Countries weren't found"});
 
         //Setting up right structure
         let pass = countries.map(country => {
@@ -35,10 +35,18 @@ async function getCountryQuery(req, res){
 };
 
 async function getCountryByID(req, res){
-    try{
-        if(!req.params) return res.status(STATUS_ERROR).json({error: "The require information is missing"});
-        const {id} = req.params;
-        if(!id);
+    try{        
+        //Obtains the require information
+        const {idPais} = req.params;
+
+        //Looks if the params was send correctly
+        if(!idPais) return res.status(STATUS_ERROR).json({error: "The require information is missing"});
+
+        //Searches for the desire country
+        const country = await obtainCountriesActivities(idPais);
+
+        return res.status(STATUS_OK).json(country);
+
     }catch(error){res.status(SERVER_ERROR).json({error: error.message})};
 };
 

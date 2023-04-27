@@ -1,18 +1,7 @@
-const {Activity, Country} = require('../db');
+const {Activity} = require('../db');
+const findCountry = require('./findCountry');
 
-const createActivity = async(name, difficulty, duration, season, countryID) =>{
-    //Create the new Activity
-    let newActivity = await Activity.create({name: name, difficulty: difficulty, duration: duration, 
-        season: season});
-    
-    //Finds country where the activity will happen.
-    let country = await Country.findByPk(countryID);
-    
-    //Connects the tables
-    await country.addActivity(newActivity);
-    
-    //Returns the new
-    return newActivity;
-};
+const createActivity = async(name, difficulty, duration, season) => await Activity.create({
+    name: name, difficulty: difficulty, duration: duration, season: season});
 
 module.exports = createActivity;
