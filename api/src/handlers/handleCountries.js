@@ -12,7 +12,7 @@ async function getAllCountries(req, res){
             return {id: country.id ,flag: country.flag, name: country.name, continent: country.continent}
         });
 
-        res.status(STATUS_OK).json(pass);
+        return res.status(STATUS_OK).json(pass);
     }catch(error){res.status(SERVER_ERROR).json({error: error.message})};
 };
 
