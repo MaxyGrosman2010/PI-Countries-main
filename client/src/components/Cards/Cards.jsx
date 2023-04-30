@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {getAllCountries} from "../redux/actions/actions";
+import {getAllCountries} from "../../redux/actions/actions";
 import Card from "./Card/Card";
 import Paginate from "./Paginate/Paginate";
 import FilterOrderBar from "./FilterOrderBar/FilterOrderBar";

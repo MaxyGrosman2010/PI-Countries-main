@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
-import {nextPage, prevPage} from '../../redux/actions/actions';
+import {nextPage, prevPage} from '../../../redux/actions/actions';
 
 export default function Paginate({cantPages}){
 
