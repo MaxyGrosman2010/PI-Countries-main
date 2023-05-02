@@ -2,6 +2,7 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 export const RESET_COUNTRIES = "RESET_COUNTRIES";
 export const COUNTRY_DETAIL = "COUNTRY_DETAIL";
 export const RESET_DETAIL = "RESET_DETAIL";
+export const SEARCH_COUNTRIES = "SEARCH_COUNTRIES";
 
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";

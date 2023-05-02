@@ -1,5 +1,5 @@
-import {GET_ALL_COUNTRIES, NEXT_PAGE, PREV_PAGE, RESET_COUNTRIES, 
-    COUNTRY_DETAIL, RESET_DETAIL} from "../actions/types";
+import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, 
+    SEARCH_COUNTRIES, NEXT_PAGE, PREV_PAGE} from "../actions/types";
 
 const initialState ={
     allCountries: [],
@@ -18,14 +18,14 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 allCountries: payload,
                 showCountries: payload,
-                cantPages: Math.floor(payload.length / 10)
+                cantPages: Math.ceil(payload.length / 10)
             };
 
         case RESET_COUNTRIES:
             return{
                 ...state,
                 showCountries: state.allCountries,
-                cantPages: Math.floor(state.allCountries.length / 10)
+                cantPages: Math.ceil(state.allCountries.length / 10)
             };
 
         case COUNTRY_DETAIL:
@@ -38,6 +38,14 @@ const rootReducer = (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 countryDetails: {}
+            };
+
+        case SEARCH_COUNTRIES:
+            console.log(payload);
+            return {
+                ...state,
+                showCountries: payload,
+                cantPages: Math.ceil(payload.length / 10)
             };
 
         case NEXT_PAGE:

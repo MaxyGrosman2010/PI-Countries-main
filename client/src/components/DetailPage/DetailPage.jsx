@@ -42,5 +42,5 @@ export default function DetailPage(){
             ) : "There are no activities"}</h2>
 
         </div>
-    )
+    );
 };

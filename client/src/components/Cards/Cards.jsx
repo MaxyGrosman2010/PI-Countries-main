@@ -12,7 +12,7 @@ export default function Cards(){
 
     useEffect( () => {
         dispatch(resetCountries());
-    }, [showCountries]);
+    }, []);
 
     let from = (numPage - 1) * 10;
     let to = numPage * 10;
