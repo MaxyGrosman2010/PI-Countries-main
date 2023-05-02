@@ -15,7 +15,6 @@ export default function DetailPage(){
     }, [id]);
 
     const {countryDetails} = useSelector(state => state);
-    console.log(countryDetails);
     const {activities} = countryDetails;
 
     return(

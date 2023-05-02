@@ -5,6 +5,8 @@ import validation from "../../validation";
 
 export default function FormPage(){
 
+    const dispatch = useDispatch();
+    const {allCountries} = useSelector(state => state);
     const [error, setError] = useState([]);
     const [activity, setActivity] = useState({
         name: "",
@@ -13,13 +15,8 @@ export default function FormPage(){
         season: "",
         countryID: ""
     });
-    const dispatch = useDispatch();
-    const {allCountries, allActivities} = useSelector(state => state);
-
-    console.log(allActivities);
 
     const handleChange = (event) => {
-
         setError(validation({
             ...activity, 
             [event.target.name]: event.target.value
@@ -34,7 +31,6 @@ export default function FormPage(){
         event.preventDefault();
 
         if(Object.values(error).length === 0){
-
             dispatch(createActivity(activity));
             setActivity({
                 name: "", 
@@ -44,9 +40,9 @@ export default function FormPage(){
                 countryID: ""
             });
             setError({});
-
         }else window.alert("This isn't an tourist activity");
     };
+
     return (
         <div>
             <form onSubmit={handleSubmit} >
@@ -58,7 +54,7 @@ export default function FormPage(){
 
                 <label >Difficulty:</label>
                 <select name="difficulty" value={activity.difficulty} onChange={handleChange} >
-                    <option value="difficulty" disabled="disable">Select difficulty</option>
+                    <option value="difficulty" >Select difficulty</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -71,7 +67,7 @@ export default function FormPage(){
 
                 <label >Season</label>
                 <select name="season" value={activity.season} onChange={handleChange} >
-                    <option value="season" disabled="disable">Select season</option>
+                    <option value="season" >Select season</option>
                     <option value="Verano">Summer</option>
                     <option value="Otoño">Autumn</option>
                     <option value="Invierno">Winter</option>
@@ -80,7 +76,7 @@ export default function FormPage(){
 
                 <label >Country/Countries</label>
                 <select name="countryID" value={activity.countryID} onChange={handleChange} >
-                    <option value="country" disabled="disable">Select Country</option>
+                    <option value="country" >Select Country</option>
                     {allCountries && allCountries.map(country => 
                         <option value={country.id}>{country.name}</option>)}
                 </select>
