@@ -1,8 +1,12 @@
-import {GET_ALL_COUNTRIES, NEXT_PAGE, PREV_PAGE} from "../actions/types";
+import {GET_ALL_COUNTRIES, NEXT_PAGE, PREV_PAGE, RESET_COUNTRIES, 
+    COUNTRY_DETAIL, RESET_DETAIL} from "../actions/types";
 
 const initialState ={
     allCountries: [],
-    numPage: 1
+    showCountries: [],
+    countryDetails: {},
+    numPage: 1,
+    cantPages: 0
 };
 
 const rootReducer = (state = initialState, {type, payload}) => {
@@ -12,7 +16,28 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case GET_ALL_COUNTRIES:
             return {
                 ...state,
-                allCountries: payload
+                allCountries: payload,
+                showCountries: payload,
+                cantPages: Math.floor(payload.length / 10)
+            };
+
+        case RESET_COUNTRIES:
+            return{
+                ...state,
+                showCountries: state.allCountries,
+                cantPages: Math.floor(state.allCountries.length / 10)
+            };
+
+        case COUNTRY_DETAIL:
+            return{
+                ...state,
+                countryDetails: payload
+            };
+
+        case RESET_DETAIL:
+            return {
+                ...state,
+                countryDetails: {}
             };
 
         case NEXT_PAGE:

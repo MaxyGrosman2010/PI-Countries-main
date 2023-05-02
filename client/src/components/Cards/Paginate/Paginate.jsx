@@ -1,10 +1,10 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {nextPage, prevPage} from '../../../redux/actions/actions';
 
-export default function Paginate({cantPages}){
+export default function Paginate(){
 
     const dispatch= useDispatch();
-    const {numPage} = useSelector((state) => state);
+    const {numPage, cantPages} = useSelector((state) => state);
 
     const next = () => dispatch(nextPage());
     const prev = () => dispatch(prevPage());
@@ -17,5 +17,5 @@ export default function Paginate({cantPages}){
 
             {numPage < cantPages ? ( <button onClick={next}>{numPage + 1}</button> ) : null}
         </div>
-    )
+    );
 };

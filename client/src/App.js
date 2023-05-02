@@ -1,19 +1,23 @@
-import { useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
 import FormPage from './components/FormPage/FormPage';
 import DetailPage from './components/DetailPage/DetailPage';
+import {getAllCountries} from './redux/actions/actions';
 
 
 
 function App() {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     navigate('/');
+    dispatch(getAllCountries());
   }, []);
 
   return (

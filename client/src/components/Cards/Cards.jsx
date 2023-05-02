@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {getAllCountries} from "../../redux/actions/actions";
+import {resetCountries} from '../../redux/actions/actions';
 import Card from "./Card/Card";
 import Paginate from "./Paginate/Paginate";
 import FilterOrderBar from "./FilterOrderBar/FilterOrderBar";
@@ -8,16 +8,15 @@ import FilterOrderBar from "./FilterOrderBar/FilterOrderBar";
 export default function Cards(){
 
     const dispatch = useDispatch();
+    const {showCountries, numPage} = useSelector(state => state);
 
     useEffect( () => {
-        dispatch(getAllCountries());
-    }, []);
+        dispatch(resetCountries());
+    }, [showCountries]);
 
-    const {allCountries, numPage} = useSelector(state => state);
-    let cantPages = Math.floor(allCountries.length / 10);
     let from = (numPage - 1) * 10;
     let to = numPage * 10;
-    let viewCountries = allCountries.slice(from, to);
+    let viewCountries = showCountries.slice(from, to);
 
     return (
         <div>
@@ -33,7 +32,7 @@ export default function Cards(){
             />)
             }
 
-            <Paginate cantPages={cantPages} />
+            <Paginate />
         </div>
     );
 };

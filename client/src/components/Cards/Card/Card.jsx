@@ -5,7 +5,7 @@ export default function Card({id, flag, name, continent}){
     return (
         <div key={id} >
 
-            <Link to="/Detail/:id">
+            <Link to={`/Detail/${id}`}>
                 <img src={flag} alt={name} />
 
                 <h2>Country: {name}</h2>
