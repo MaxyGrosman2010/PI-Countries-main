@@ -1,10 +1,11 @@
 import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, 
-    SEARCH_COUNTRIES, NEXT_PAGE, PREV_PAGE} from "../actions/types";
+    SEARCH_COUNTRIES, GET_ALL_ACTIVITIES, CREATE_ACTIVITY, NEXT_PAGE, PREV_PAGE} from "../actions/types";
 
 const initialState ={
     allCountries: [],
     showCountries: [],
     countryDetails: {},
+    allActivities: [],
     numPage: 1,
     cantPages: 0
 };
@@ -41,11 +42,22 @@ const rootReducer = (state = initialState, {type, payload}) => {
             };
 
         case SEARCH_COUNTRIES:
-            console.log(payload);
             return {
                 ...state,
                 showCountries: payload,
                 cantPages: Math.ceil(payload.length / 10)
+            };
+
+        case GET_ALL_ACTIVITIES:
+            return {
+                ...state,
+                allActivities: payload
+            };
+
+        case CREATE_ACTIVITY:
+            return {
+                ...state,
+                allActivities: [...state.allActivities, payload]
             };
 
         case NEXT_PAGE:

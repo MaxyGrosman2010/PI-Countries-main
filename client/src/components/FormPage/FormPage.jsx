@@ -1,14 +1,63 @@
+import {useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {createActivity} from "../../redux/actions/actions";
+import validation from "../../validation";
+
 export default function FormPage(){
+
+    const [error, setError] = useState([]);
+    const [activity, setActivity] = useState({
+        name: "",
+        difficulty: 0,
+        duration: 0,
+        season: "",
+        countryID: ""
+    });
+    const dispatch = useDispatch();
+    const {allCountries, allActivities} = useSelector(state => state);
+
+    console.log(allActivities);
+
+    const handleChange = (event) => {
+
+        setError(validation({
+            ...activity, 
+            [event.target.name]: event.target.value
+        }));
+        setActivity({
+            ...activity, 
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if(Object.values(error).length === 0){
+
+            dispatch(createActivity(activity));
+            setActivity({
+                name: "", 
+                difficulty: 0, 
+                duration: 0, 
+                season: "", 
+                countryID: ""
+            });
+            setError({});
+
+        }else window.alert("This isn't an tourist activity");
+    };
     return (
         <div>
-            <form action="">
+            <form onSubmit={handleSubmit} >
+
                 <h2>Create an Activity</h2>
 
                 <label >Name:</label>
-                <input type="text" />
+                <input name="name" value={activity.name} type="text" onChange={handleChange} />
 
                 <label >Difficulty:</label>
-                <select name="difficulty" >
+                <select name="difficulty" value={activity.difficulty} onChange={handleChange} >
                     <option value="difficulty" disabled="disable">Select difficulty</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -18,10 +67,10 @@ export default function FormPage(){
                 </select>
 
                 <label >Duration</label>
-                <input type="number" />
+                <input name="duration" value={activity.duration} type="number" onChange={handleChange} />
 
                 <label >Season</label>
-                <select name="season">
+                <select name="season" value={activity.season} onChange={handleChange} >
                     <option value="season" disabled="disable">Select season</option>
                     <option value="Verano">Summer</option>
                     <option value="Otoño">Autumn</option>
@@ -30,9 +79,14 @@ export default function FormPage(){
                 </select>
 
                 <label >Country/Countries</label>
+                <select name="countryID" value={activity.countryID} onChange={handleChange} >
+                    <option value="country" disabled="disable">Select Country</option>
+                    {allCountries && allCountries.map(country => 
+                        <option value={country.id}>{country.name}</option>)}
+                </select>
 
                 <button type="submit">Submit</button>
             </form>
         </div>
-    )
+    );
 };

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, 
-    SEARCH_COUNTRIES, NEXT_PAGE, PREV_PAGE} from "./types";
+    SEARCH_COUNTRIES, GET_ALL_ACTIVITIES, CREATE_ACTIVITY, NEXT_PAGE, 
+    PREV_PAGE} from "./types";
 
 const endPoint = "http://localhost:3001";
 
@@ -42,6 +43,33 @@ export const searchCountries = (name) => {
             
             if(data) return dispatch({
                 type: SEARCH_COUNTRIES,
+                payload: data
+            });
+        }catch(error){return error.message};
+    };
+};
+
+export const getAllActivities = () => {
+    try{
+        return async (dispatch) => {
+            const {data} = await axios(`${endPoint}/activities/get`);
+
+            if(data) return dispatch({
+                type: GET_ALL_ACTIVITIES,
+                payload: data
+            });
+        };
+    }catch(error){return error.message};
+};
+
+export const createActivity = (activity) => {
+    return async (dispatch) => {
+        try{
+
+            const {data} = await axios.post(`${endPoint}/activities/post`, activity);
+
+            if(data) return dispatch({
+                type: CREATE_ACTIVITY,
                 payload: data
             });
         }catch(error){return error.message};
