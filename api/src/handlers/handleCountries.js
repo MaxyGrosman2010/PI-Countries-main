@@ -37,7 +37,7 @@ async function getCountryByID(req, res){
 
         const country = await obtainCountriesActivities(idPais);
 
-        return res.status(Number(STATUS_OK)).json(country);
+        return res.status(Number(STATUS_OK)).json(country[0]);
 
     }catch(error){res.status(Number(SERVER_ERROR)).json({error: error.message})};
 };
