@@ -9,7 +9,9 @@ async function getAllCountries(req, res){
         if(!countries) return res.status(Number(STATUS_ERROR)).json({error: "Countries weren't found"});
 
         let pass = countries.map(country => {
-            return {id: country.id ,flag: country.flag, name: country.name, continent: country.continent}
+            return {id: country.id ,flag: country.flag, name: country.name, 
+                continent: country.continent, population: country.population, 
+                activities: country.activities}
         });
 
         return res.status(Number(STATUS_OK)).json(pass);
