@@ -1,22 +1,22 @@
 import {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {resetCountries} from '../../redux/actions/actions';
+import {useSelector} from "react-redux";
 import Card from "./Card/Card";
 import Paginate from "./Paginate/Paginate";
 import FilterOrderBar from "./FilterOrderBar/FilterOrderBar";
 
 export default function Cards(){
 
-    const dispatch = useDispatch();
     const {showCountries, numPage} = useSelector(state => state);
-
-    useEffect( () => {
-        dispatch(resetCountries());
-    }, []);
+    
+    useEffect( () => {}, [showCountries]);
 
     let from = (numPage - 1) * 10;
     let to = numPage * 10;
     let viewCountries = showCountries.slice(from, to);
+
+    
+
+    
 
     return (
         <div>

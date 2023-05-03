@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, 
-    SEARCH_COUNTRIES, GET_ALL_ACTIVITIES, CREATE_ACTIVITY, NEXT_PAGE, 
-    PREV_PAGE} from "./types";
+import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, SEARCH_COUNTRIES, 
+    GET_ALL_ACTIVITIES, CREATE_ACTIVITY, ORDER_COUNTRIES_ID, ORDER_COUNTRIES_POPULATION, 
+    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE} from "./types";
 
 const endPoint = "http://localhost:3001";
 
@@ -75,6 +75,29 @@ export const createActivity = (activity) => {
         }catch(error){return error.message};
     };
 };
+
+export const orderCountriesId = (order) => {
+    return {
+        type: ORDER_COUNTRIES_ID,
+        payload: order
+    };
+};
+
+export const orderCountriesPopulation = (order) => {
+    return {
+        type: ORDER_COUNTRIES_POPULATION,
+        payload: order
+    };
+};
+
+export const filterCountriesContinent = (filter) => {
+    return {
+        type: FILTER_COUNTRIES_CONTINENT,
+        payload: filter
+    };
+};
+
+export const filterCountriesActivity = () => {};
 
 export const nextPage = () => {
     return {type: NEXT_PAGE};

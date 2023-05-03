@@ -78,7 +78,7 @@ export default function FormPage(){
                 <select name="countryID" value={activity.countryID} onChange={handleChange} >
                     <option value="country" >Select Country</option>
                     {allCountries && allCountries.map(country => 
-                        <option value={country.id}>{country.name}</option>)}
+                        <option value={country.name}>{country.name}</option>)}
                 </select>
 
                 <button type="submit">Submit</button>
