@@ -21,7 +21,7 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const loadAPI = require('./src/handlers/loadAPI.js');
 
-conn.sync({ force: true }).then( async() => {
+conn.sync({force: false}).then( async() => {
 
   await loadAPI();
 
