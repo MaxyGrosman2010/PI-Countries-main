@@ -22,7 +22,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
 
         payload.forEach(country => state.allContinents.includes(country.continent) ? 
         null : state.allContinents.push(country.continent));
-            
+        
             return {
                 ...state,
                 allCountries: payload,
@@ -58,6 +58,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
             };
 
         case GET_ALL_ACTIVITIES:
+
+            payload.forEach(activity => state.allUniqueActivities.includes(activity.name) ? 
+                null : state.allUniqueActivities.push(activity.name));
+                
             return {
                 ...state,
                 allActivities: payload
@@ -123,14 +127,30 @@ const rootReducer = (state = initialState, {type, payload}) => {
 
             return {
                 ...state, 
-                showCountries: state.allCountries.filter(country => payload === country.continent),
+                showCountries: state.showCountries.filter(country => payload === country.continent),
                 numPage: 1,
                 cantPages: Math.ceil(state.showCountries.length / 10)
             };
 
         case FILTER_COUNTRIES_ACTIVITY:
+            if(payload === "All") return{
+                ...state,
+                showCountries: state.allCountries,
+                numPage: 1,
+                cantPages: Math.ceil(state.showCountries.length / 10)
+            };
+
             return {
-                ...state
+                ...state,
+                showCountries: state.showCountries.filter(country => {
+                    const {activities} = country;
+                    for(let i = 0; i < activities.length; i++){
+                        if(activities[i].name === payload) return true;
+                    }
+                    return false;
+                    }),
+                numPage: 1,
+                cantPages: Math.ceil(state.showCountries.length / 10)
             };
 
         case NEXT_PAGE:

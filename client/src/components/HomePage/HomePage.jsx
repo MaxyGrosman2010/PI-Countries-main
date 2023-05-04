@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {resetCountries} from "../../redux/actions/actions";
 import Cards from "../Cards/Cards";
+import style from './HomePage.module.css'
 
 export default function HomePage(){
 
@@ -12,10 +13,10 @@ export default function HomePage(){
     }, []);
 
     return (
-        <div>
+        <div className={style.contains} >
 
             <Cards />
-            
+
         </div>
     )
 };

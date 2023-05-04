@@ -1,21 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
 import {orderCountriesId, orderCountriesPopulation, 
-    filterCountriesContinent} from "../../../redux/actions/actions";
-import { all } from "axios";
+    filterCountriesContinent, filterCountriesActivity} from "../../../redux/actions/actions";
+import style from './FilterOrderBar.module.css';
 
 export default function FilterOrderBar(){
 
     const dispatch = useDispatch();
-    const {allContinents} = useSelector(state => state);
-
-    console.log(allContinents);
+    const {allContinents, allUniqueActivities} = useSelector(state => state);
 
     const handleOrderID = (event) => dispatch(orderCountriesId(event.target.value));
     const handleChangePopulation = (event) => dispatch(orderCountriesPopulation(event.target.value));
     const handleFilterContienent = (event) => dispatch(filterCountriesContinent(event.target.value));
+    const handleFilterActivity = (event) => dispatch(filterCountriesActivity(event.target.value));
 
     return (
-        <div>
+        <div className={style.contains} >
 
             <div>
                 <label >Sort by Alphabetic Order:</label>
@@ -41,14 +40,18 @@ export default function FilterOrderBar(){
                 <select name="filterContinent" onChange={handleFilterContienent} >
                     <option value="All">All</option>
                     {allContinents && allContinents.map(continent => 
-                        <option value={continent}>{continent}</option>)}
+                        <option key={continent} value={continent}>{continent}</option>)}
                 </select>
 
             </div>
 
             <div>
                 <label >Filter by Activity:</label>
-                
+                <select name="filterActivity" onChange={handleFilterActivity} >
+                    <option value="All">All</option>
+                    {allUniqueActivities && allUniqueActivities.map(activity => 
+                        <option key={activity} value={activity} >{activity}</option>)}
+                </select>
             </div>
 
         </div>

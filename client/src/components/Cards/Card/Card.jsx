@@ -1,16 +1,19 @@
 import {Link} from "react-router-dom";
+import style from "./Card.module.css";
 
 export default function Card({id, flag, name, continent}){
 
     return (
-        <div key={id} >
+        <div key={id} className={style.contains} >
 
             <Link to={`/Detail/${id}`}>
                 <img src={flag} alt={name} />
 
-                <h2>Country: {name}</h2>
+                <div className={style.country}>
+                    Country: {name}
+                </div>
 
-                <h2>Continent: {continent}</h2>
+                <div>Continent: {continent}</div>
             </Link>
         </div>
     );

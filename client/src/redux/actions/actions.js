@@ -97,7 +97,12 @@ export const filterCountriesContinent = (filter) => {
     };
 };
 
-export const filterCountriesActivity = () => {};
+export const filterCountriesActivity = (filter) => {
+    return {
+        type: FILTER_COUNTRIES_ACTIVITY,
+        payload: filter
+    };
+};
 
 export const nextPage = () => {
     return {type: NEXT_PAGE};

@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {nextPage, prevPage} from '../../../redux/actions/actions';
+import style from './Paginate.module.css';
 
 export default function Paginate(){
 
@@ -10,10 +11,10 @@ export default function Paginate(){
     const prev = () => dispatch(prevPage());
 
     return (
-        <div>
+        <div className={style.contains} >
             {numPage > 1 ? (<button onClick={prev}>{numPage - 1}</button>) : null}
 
-            <h3>{numPage}</h3>
+            <div>{numPage}</div>
 
             {numPage < cantPages ? ( <button onClick={next}>{numPage + 1}</button> ) : null}
         </div>
