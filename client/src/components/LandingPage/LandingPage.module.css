@@ -1,5 +1,24 @@
-.button{
+.background{
+    height: 100vh;
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.rqrtRo9FtOQSqjEHXuiu5QHaEK%26pid%3DApi&f=1&ipt=1b462afa20908c22f50675ad5f212616e7a7339627d4a17e53bfe74a1e2a17bc&ipo=images");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.contains{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-};
+    height: 100%;
+}
+
+.button{
+    font-size: x-large;
+}
+
+.Link{
+    text-decoration: none;
+    color: rgb(112, 53, 4);
+}

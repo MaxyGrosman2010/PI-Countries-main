@@ -4,12 +4,26 @@ import style from './LandingPage.module.css';
 export default function LandingPage(){
 
     return (
-        <div className={style.contains}>
+        <div className={style.background} >
 
-            <Link to="/home">
-                <button className={style.button}>Home Page here</button>
-            </Link>
+            <div className={style.contains}>
+
+                <a className={style.Link} href="https://www.linkedin.com/in/maximiliano-g-b37459179/">
+                        <div >
+                            By Maximiliano Grosman
+                        </div>
+                </a>
+                
+                <div className={style.button} >
+                    <Link className={style.Link} to="/home">
+                        <div>
+                            Home Page
+                        </div>
+                    </Link>
+                </div>
             
+            </div>
+
         </div>
     );
 };

@@ -16,28 +16,29 @@ export default function FilterOrderBar(){
     return (
         <div className={style.contains} >
 
-            <div>
-                <label >Sort by Alphabetic Order:</label>
+            <div className={style.options} >
+                <label >Sort Alphabetic:</label>
                 <select name="sortAlphabetic" onChange={handleOrderID} >
-                    <option value="sort" >Sort by:</option>
+                    <option disabled selected value="sort" >Sort by:</option>
                     <option value="A">Ascendent</option>
                     <option value="D">Descendent</option>
                 </select>
 
             </div>
 
-            <div>
-                <label >Sort by Population:</label>
+            <div className={style.options} >
+                <label >Sort Population:</label>
                 <select name="sortPopulation" onChange={handleChangePopulation} >
-                    <option value="sort" >Sort by:</option>
+                    <option disabled selected value="sort" >Sort by:</option>
                     <option value="A">Ascendent</option>
                     <option value="D">Descendent</option>
                 </select>
             </div>
 
-            <div>
-                <label >Filter by Continent:</label>
+            <div className={style.options} >
+                <label >Filter Continent:</label>
                 <select name="filterContinent" onChange={handleFilterContienent} >
+                    <option disabled selected value="filter">Select Continent</option>
                     <option value="All">All</option>
                     {allContinents && allContinents.map(continent => 
                         <option key={continent} value={continent}>{continent}</option>)}
@@ -45,9 +46,10 @@ export default function FilterOrderBar(){
 
             </div>
 
-            <div>
-                <label >Filter by Activity:</label>
+            <div className={style.options} >
+                <label>Filter Activity:</label>
                 <select name="filterActivity" onChange={handleFilterActivity} >
+                    <option disabled selected value="filter">Select Continent</option>
                     <option value="All">All</option>
                     {allUniqueActivities && allUniqueActivities.map(activity => 
                         <option key={activity} value={activity} >{activity}</option>)}
