@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== '/' && <NavigateBar />}
+      {pathname !== '/' && <div className="navBar"> <NavigateBar /> </div>}
       <Routes>
 
         <Route path='/' element={<LandingPage />} />

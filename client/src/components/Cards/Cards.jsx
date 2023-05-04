@@ -1,7 +1,6 @@
 import {useSelector} from "react-redux";
-import FilterOrderBar from "../Cards/FilterOrderBar/FilterOrderBar";
+import Paginate from './Paginate/Paginate';
 import Card from "./Card/Card";
-import Paginate from "../Cards/Paginate/Paginate";
 import style from './Cards.module.css';
 
 export default function Cards(){
@@ -15,10 +14,6 @@ export default function Cards(){
     return (
         <div className={style.contains} >
 
-            <div className={style.filter} >
-                <FilterOrderBar />
-            </div>
-
             <div className={style.cards}>
             {
                     viewCountries && viewCountries.map(country => <Card 
@@ -31,7 +26,7 @@ export default function Cards(){
                 }
             </div>
 
-            <div className={style.paginate}>
+            <div className={style.paginate} >
                 <Paginate />
             </div>
 

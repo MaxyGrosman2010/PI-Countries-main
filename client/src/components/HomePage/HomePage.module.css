@@ -4,3 +4,17 @@
     justify-content: center;
     align-items: center;
 }
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 150%;
+}

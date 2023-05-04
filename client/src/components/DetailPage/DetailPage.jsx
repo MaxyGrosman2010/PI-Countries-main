@@ -28,10 +28,9 @@ export default function DetailPage(){
             <h2>Area size: {countryDetails.area}</h2>
             <h2>Population: {countryDetails.population}</h2>
             <h2>Activities: {Array.isArray(activities) && activities.length !== 0 ? 
-            activities.map((activity, i) => 
+            activities.map(activity => 
                 <div>
 
-                    <h3>{i}</h3>
                     <h3>Name: {activity.name}</h3>
                     <h3>Difficulty: {activity.difficulty}</h3>
                     <h3>Duration: {activity.duration}</h3>
