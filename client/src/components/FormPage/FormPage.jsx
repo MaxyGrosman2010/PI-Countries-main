@@ -61,54 +61,62 @@ export default function FormPage(){
 
     return (
         <div className={style.contains} >
+            
             <form onSubmit={handleSubmit} >
 
-                <h2>Create an Activity</h2>
+                <div className={style.form} >
+                    
+                    <h2>Create an Activity</h2>
 
-                <label >Name:</label>
-                <input name="name" value={activity.name} type="text" onChange={handleChange} />
-                {error.name ? <div>{error.name}</div>: null}
+                    <label >Name:</label>
+                    <input name="name" value={activity.name} type="text" onChange={handleChange} />
+                    {error.name ? <div>{error.name}</div>: null}
 
-                <label >Difficulty:</label>
-                <select name="difficulty" value={activity.difficulty} onChange={handleChange} >
-                    <option disabled selected value={0} >Select difficulty</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
+                    <label >Difficulty:</label>
+                    <select name="difficulty" value={activity.difficulty} onChange={handleChange} >
+                        <option disabled selected value={0} >Select difficulty</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </select>
 
-                <label >Duration</label>
-                <input name="duration" value={activity.duration} type="number" onChange={handleChange} />
-                {error.duration ? <div>{error.duration}</div> : null}
+                    <label >Duration</label>
+                    <input name="duration" value={activity.duration} type="number" onChange={handleChange} />
+                    {error.duration ? <div>{error.duration}</div> : null}
 
-                <label >Season</label>
-                <select name="season" value={activity.season} onChange={handleChange} >
-                    <option disabled selected value="" >Select season</option>
-                    <option value="Verano">Summer</option>
-                    <option value="Otoño">Autumn</option>
-                    <option value="Invierno">Winter</option>
-                    <option value="Primavera">Spring</option>
-                </select>
+                    <label >Season</label>
+                    <select name="season" value={activity.season} onChange={handleChange} >
+                        <option disabled selected value="" >Select season</option>
+                        <option value="Verano">Summer</option>
+                        <option value="Otoño">Autumn</option>
+                        <option value="Invierno">Winter</option>
+                        <option value="Primavera">Spring</option>
+                    </select>
 
-                <label >Country/Countries</label>
-                <select name="countryID" value={activity.countryID} onChange={handleCountries} >
-                    <option disabled selected value="" >Select Country</option>
-                    {allCountries && allCountries.map(country => 
-                        <option key={country.id} value={country.id}>{country.name}</option>)}
-                </select>
+                    <label >Country/Countries</label>
+                    <select name="countryID" value={activity.countryID} onChange={handleCountries} >
+                        <option disabled selected value="" >Select Country</option>
+                        {allCountries && allCountries.map(country => 
+                            <option key={country.id} value={country.id}>{country.name}</option>)}
+                    </select>
+                    
+                    <div className={style.tag} >
+                {activity.countryID && allCountries.map(country => 
+                    activity.countryID.includes(country.id) ?
+                        <div key={country.id} >
+                            <button value={country.id} onClick={closeCountry}>X</button>
+                            {country.name}
+                        </div> : null)}
+                    </div>
                 
-                <button type="submit">Submit</button>
+                    <button className={style.button} type="submit">Submit</button>
+
+                </div>
             </form>
             
-            <div>
-                {activity.countryID.map(id => 
-                    <div key={id} >
-                        <button value={id} onClick={closeCountry}>X</button>
-                        {id}
-                    </div>)}
-            </div>
+            
 
         </div>
     );

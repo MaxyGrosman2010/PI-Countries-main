@@ -1,4 +1,36 @@
 .contains{
-    background-color: white;
-    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(15, 50, 165);
+    height: 850px;
+    width: 900px;
+    margin-top: 10px;
+    margin-left: 100px;
+    border-radius: 10%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px 50px 50px;
+    margin-left: 130px;
+    margin-bottom: 50px;
+    width: 50%;
+    background-color: rgb(124, 54, 7);
+    border-radius: 10%;
+}
+
+.tag{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.button{
+    margin-top: 30px;
 }
