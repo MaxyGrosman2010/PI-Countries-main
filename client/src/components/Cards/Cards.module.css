@@ -13,9 +13,9 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background: #082686;
-    border-radius: 5%;
-    box-shadow: 0px 0px 10px 2px #2139a5;
+    background: #0f33aa;
+    border-radius: 10%;
+    box-shadow: 0px 0px 10px 2px #243fbb;
     height: 90%;
     z-index: 100;
 }

@@ -1,7 +1,7 @@
 import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, SEARCH_COUNTRIES, 
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, ORDER_COUNTRIES_ID, ORDER_COUNTRIES_POPULATION, 
-    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, 
-    PREV_PAGE} from "../actions/types";
+    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, 
+    RELOAD_PAGINATE} from "../actions/types";
 
 const initialState ={
     allCountries: [],
@@ -9,7 +9,6 @@ const initialState ={
     countryDetails: {},
     allActivities: [],
     allContinents: [],
-    allUniqueActivities: [],
     numPage: 1,
     cantPages: 0
 };
@@ -19,10 +18,9 @@ const rootReducer = (state = initialState, {type, payload}) => {
     switch(type){
 
         case GET_ALL_COUNTRIES:
+            payload.forEach(country => state.allContinents.includes(country.continent) ? 
+                null : state.allContinents.push(country.continent));
 
-        payload.forEach(country => state.allContinents.includes(country.continent) ? 
-        null : state.allContinents.push(country.continent));
-        
             return {
                 ...state,
                 allCountries: payload,
@@ -33,9 +31,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case RESET_COUNTRIES:
             return{
                 ...state,
-                showCountries: state.allCountries,
-                cantPages: Math.ceil(state.allCountries.length / 10),
-                numPage: 1
+                showCountries: state.allCountries
             };
 
         case COUNTRY_DETAIL:
@@ -53,14 +49,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case SEARCH_COUNTRIES:
             return {
                 ...state,
-                showCountries: payload,
-                cantPages: Math.ceil(payload.length / 10)
+                showCountries: payload
             };
 
         case GET_ALL_ACTIVITIES:
-
-            payload.forEach(activity => state.allUniqueActivities.includes(activity.name) ? 
-                null : state.allUniqueActivities.push(activity.name));
                 
             return {
                 ...state,
@@ -74,13 +66,6 @@ const rootReducer = (state = initialState, {type, payload}) => {
             };
 
         case ORDER_COUNTRIES_ID:
-
-            if(payload !== "A" && payload !== "D") 
-                return {
-                    ...state, 
-                    showCountries: state.allCountries
-                };
-
             return {
                 ...state,
 
@@ -100,16 +85,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 if (nameA > nameB) return -1;
                 if (nameA < nameB) return 1;
                 return 0;
-              })
+              }),
             };
 
         case ORDER_COUNTRIES_POPULATION:
-            if(payload !== "A" && payload !== "D") 
-                return {
-                    ...state, 
-                    showCountries: state.allCountries
-                };
-
             return {
                 ...state,
                 showCountries:  payload === "A" ? 
@@ -118,28 +97,12 @@ const rootReducer = (state = initialState, {type, payload}) => {
             };
 
         case FILTER_COUNTRIES_CONTINENT:
-            if(payload === "All") return {
-                ...state,
-                showCountries: state.allCountries,
-                numPage: 1,
-                cantPages: Math.ceil(state.showCountries.length / 10)
-            };
-
             return {
                 ...state, 
-                showCountries: state.showCountries.filter(country => payload === country.continent),
-                numPage: 1,
-                cantPages: Math.ceil(state.showCountries.length / 10)
+                showCountries: state.showCountries.filter(country => payload === country.continent)
             };
 
         case FILTER_COUNTRIES_ACTIVITY:
-            if(payload === "All") return{
-                ...state,
-                showCountries: state.allCountries,
-                numPage: 1,
-                cantPages: Math.ceil(state.showCountries.length / 10)
-            };
-
             return {
                 ...state,
                 showCountries: state.showCountries.filter(country => {
@@ -148,9 +111,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
                         if(activities[i].name === payload) return true;
                     }
                     return false;
-                    }),
-                numPage: 1,
-                cantPages: Math.ceil(state.showCountries.length / 10)
+                    })
             };
 
         case NEXT_PAGE:
@@ -164,6 +125,13 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 numPage: state.numPage - 1
             };
+
+        case RELOAD_PAGINATE:
+            return{
+                ...state,
+                numPage: 1,
+                cantPages: Math.ceil(state.showCountries.length / 10)
+            }
 
         default:
             return state;

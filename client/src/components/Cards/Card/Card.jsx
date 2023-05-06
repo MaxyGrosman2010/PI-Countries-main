@@ -13,7 +13,7 @@ export default function Card({id, flag, name, continent}){
                     Country: {name}
                 </div>
 
-                <div>Continent: {continent}</div>
+                <div className={style.continent} >Continent: {continent}</div>
             </Link>
         </div>
     );

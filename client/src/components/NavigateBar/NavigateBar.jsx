@@ -6,15 +6,19 @@ export default function NavigateBar(){
     return (
         <div className={style.contains} >
 
-            <Link to="/home">
-                <button>Home</button>
-            </Link>
+            <div>
+                <Link to="/home">
+                    <button>Home</button>
+                </Link>
+            </div>
 
             <SearchBar />
 
-            <Link to="/Activity">
-                <button>Create Activity</button>
-            </Link>
+            <div>
+                <Link to="/Activity">
+                    <button>Create Activity</button>
+                </Link>
+            </div>
 
         </div>
     );

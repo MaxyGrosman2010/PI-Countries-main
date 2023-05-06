@@ -1,17 +1,28 @@
 import {useDispatch, useSelector} from "react-redux";
 import {orderCountriesId, orderCountriesPopulation, 
-    filterCountriesContinent, filterCountriesActivity} from "../../../redux/actions/actions";
+    filterCountriesContinent, filterCountriesActivity, resetCountries, 
+    reloadPaginate} from "../../../redux/actions/actions";
 import style from './FilterOrderBar.module.css';
 
 export default function FilterOrderBar(){
 
     const dispatch = useDispatch();
-    const {allContinents, allUniqueActivities} = useSelector(state => state);
+    const {allContinents, allActivities} = useSelector(state => state);
 
     const handleOrderID = (event) => dispatch(orderCountriesId(event.target.value));
     const handleChangePopulation = (event) => dispatch(orderCountriesPopulation(event.target.value));
-    const handleFilterContienent = (event) => dispatch(filterCountriesContinent(event.target.value));
-    const handleFilterActivity = (event) => dispatch(filterCountriesActivity(event.target.value));
+    
+    const handleFilterContienent = (event) => {
+        if(event.target.value === "All") dispatch(resetCountries());
+        else dispatch(filterCountriesContinent(event.target.value));
+        dispatch(reloadPaginate());
+    };
+
+    const handleFilterActivity = (event) => {
+        if(event.target.value === "All") dispatch(resetCountries());
+        else dispatch(filterCountriesActivity(event.target.value));
+        dispatch(reloadPaginate());
+    };
 
     return (
         <div className={style.contains} >
@@ -51,8 +62,8 @@ export default function FilterOrderBar(){
                 <select name="filterActivity" onChange={handleFilterActivity} >
                     <option disabled selected value="filter">Select Continent</option>
                     <option value="All">All</option>
-                    {allUniqueActivities && allUniqueActivities.map(activity => 
-                        <option key={activity} value={activity} >{activity}</option>)}
+                    {allActivities && allActivities.map(activity => 
+                        <option key={activity.id} value={activity.name} >{activity.name}</option>)}
                 </select>
             </div>
 

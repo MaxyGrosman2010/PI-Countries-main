@@ -1,19 +1,26 @@
 .contains{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 40%;
-    width: 18%;
-    background: #5e1e01;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 2px #522202;
+    width: 17%;
+    background: #8b3108;
+    border-radius: 15%;
+    box-shadow: 0px 0px 10px 2px #92410b;
 }
+
 .contains img{
     width: 30%;
     height: 30%;
     border-radius: 50%;
 }
+
+.Link{
+    text-decoration: none;
+    color: rgb(16, 199, 32);
+}
+
 .country{
     display: flex;
     flex-direction: row;
@@ -21,11 +28,17 @@
     align-items: center;
     width: 5%;
     height: 5%;
-    padding-top: 20%;
+    padding-top: 5%;
     padding-left: 50%;
 }
 
-.Link{
-    text-decoration: none;
-    color: rgb(5, 82, 11);
+.continent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    height: 5%;
+    padding-top: 5%;
+    padding-left: 50%;
 }

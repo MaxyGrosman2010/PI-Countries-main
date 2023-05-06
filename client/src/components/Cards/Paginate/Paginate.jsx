@@ -12,11 +12,17 @@ export default function Paginate(){
 
     return (
         <div className={style.contains} >
-            {numPage > 1 ? (<button onClick={prev}>{numPage - 1}</button>) : null}
+            {numPage > 1 ? ( 
+                <div className={style.button}> 
+                    <button onClick={prev}>{numPage - 1}</button>
+                </div>) : null}
 
-            <div>{numPage}</div>
+            <div className={style.number} >{numPage}</div>
 
-            {numPage < cantPages ? ( <button onClick={next}>{numPage + 1}</button> ) : null}
+            {numPage < cantPages ? ( 
+            <div className={style.button}>
+                <button onClick={next}>{numPage + 1}</button>
+            </div> ) : null}
         </div>
     );
 };

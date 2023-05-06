@@ -8,7 +8,7 @@ export default function validation(inputs) {
     
     if(inputs.name) 
         if(inputs.name === "") error.name = "A tourist activity must have a name";
-        else if(regexName.test(inputs.name));
+        else if(!regexName.test(inputs.name)) error.name = "This isn't a valid name for a tourist activity";
 
     return error;
 };

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, SEARCH_COUNTRIES, 
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, ORDER_COUNTRIES_ID, ORDER_COUNTRIES_POPULATION, 
-    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE} from "./types";
+    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, 
+    RELOAD_PAGINATE} from "./types";
 
 const endPoint = "http://localhost:3001";
 
@@ -65,7 +66,6 @@ export const getAllActivities = () => {
 export const createActivity = (activity) => {
     return async (dispatch) => {
         try{
-
             const {data} = await axios.post(`${endPoint}/activities/post`, activity);
 
             if(data) return dispatch({
@@ -110,4 +110,8 @@ export const nextPage = () => {
 
 export const prevPage = () => {
     return {type: PREV_PAGE};
+};
+
+export const reloadPaginate = () => {
+    return {type: RELOAD_PAGINATE};
 };
