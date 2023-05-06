@@ -9,14 +9,14 @@ export default function LandingPage(){
             <div className={style.contains}>
 
                 <a className={style.Link} href="https://www.linkedin.com/in/maximiliano-g-b37459179/">
-                        <div >
+                        <div className={style.LinkText} >
                             By Maximiliano Grosman
                         </div>
                 </a>
                 
                 <div className={style.button} >
                     <Link className={style.Link} to="/home">
-                        <div>
+                        <div >
                             Home Page
                         </div>
                     </Link>

@@ -17,11 +17,11 @@
 }
 
 .options label{
-    color: rgb(255, 255, 255);
+    color: rgb(251, 255, 0);
     background-color: transparent;
 }
 
 .options select{
-    color: rgb(255, 255, 255);
+    color: rgb(251, 255, 0);
     background: #000000
 }

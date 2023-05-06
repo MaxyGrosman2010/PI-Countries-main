@@ -16,9 +16,16 @@
 
 .button{
     font-size: x-large;
+    border-radius: 30%;
+    border-color: white;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
 }
 
 .Link{
+    display: flex;
+    justify-content: center;
+    align-self: center;
     text-decoration: none;
-    color: rgb(65, 31, 3);
+    color: rgb(0, 0, 0);
 }
