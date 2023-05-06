@@ -16,6 +16,6 @@ module.exports = async () => {
             sub_region: subregion, area, population};
     });
 
-    await createCountries(correctCountries);
+    createCountries(correctCountries);
     return correctCountries;
 };
