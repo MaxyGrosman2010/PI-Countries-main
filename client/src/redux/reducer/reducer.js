@@ -49,7 +49,9 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case SEARCH_COUNTRIES:
             return {
                 ...state,
-                showCountries: payload
+                showCountries: payload,
+                numPage: 1,
+                cantPages: Math.ceil(payload.length / 10)
             };
 
         case GET_ALL_ACTIVITIES:

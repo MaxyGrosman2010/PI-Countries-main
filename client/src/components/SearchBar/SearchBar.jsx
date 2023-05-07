@@ -4,7 +4,6 @@ import {useDispatch} from 'react-redux';
 import {searchCountries} from '../../redux/actions/actions';
 import style from './SearchBar.module.css';
 
-
 export default function SearchBar(){
 
     let [name, setName] = useState("");

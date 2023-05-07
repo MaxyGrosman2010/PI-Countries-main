@@ -9,8 +9,6 @@ import FormPage from './components/FormPage/FormPage';
 import DetailPage from './components/DetailPage/DetailPage';
 import NavigateBar from './components/NavigateBar/NavigateBar';
 
-
-
 function App() {
 
   const navigate = useNavigate();
@@ -18,17 +16,17 @@ function App() {
   const {pathname} = useLocation();
 
   useEffect(() => {
-    navigate('/');
+    navigate('/landing');
     dispatch(getAllCountries());
     dispatch(getAllActivities());
   }, []);
 
   return (
     <div className="App">
-      {pathname !== '/' && <div className="navBar"> <NavigateBar /> </div>}
+      {pathname !== '/landing' && <div className="navBar"> <NavigateBar /> </div>}
       <Routes>
 
-        <Route path='/' element={<LandingPage />} />
+        <Route path='/landing' element={<LandingPage />} />
         <Route path='/home' element={<HomePage />} />
         <Route path='/activity' element={<FormPage />} />
         <Route path='/detail/:id' element={<DetailPage />} />
