@@ -6,7 +6,7 @@ export default function Card({id, flag, name, continent}){
     return (
         <div key={id} className={style.contains} >
 
-            <Link className={style.Link} to={`/Detail/${id}`}>
+            <Link className={style.Link} to={`/detail/${id}`}>
                 <img src={flag} alt={name} />
 
                 <div className={style.country}>

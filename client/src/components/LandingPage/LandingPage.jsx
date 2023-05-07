@@ -9,7 +9,7 @@ export default function LandingPage(){
             <div className={style.contains}>
 
                 <a className={style.Link} href="https://www.linkedin.com/in/maximiliano-g-b37459179/">
-                        <div className={style.LinkText} >
+                        <div >
                             By Maximiliano Grosman
                         </div>
                 </a>

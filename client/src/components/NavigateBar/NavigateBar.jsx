@@ -5,21 +5,23 @@ import style from "./Navigate.module.css";
 export default function NavigateBar(){
     return (
         <div className={style.contains} >
-
-            <div>
-                <Link to="/home">
-                    <button>Home</button>
+            <div >
+                <Link className={style.Link} to="/home">
+                    <div>
+                        Home
+                    </div>
                 </Link>
             </div>
 
             <SearchBar />
 
-            <div>
-                <Link to="/Activity">
-                    <button>Create Activity</button>
+            <div >
+                <Link className={style.Link} to="/activity">
+                    <div>
+                    Create Activity
+                    </div>
                 </Link>
             </div>
-
         </div>
     );
 };

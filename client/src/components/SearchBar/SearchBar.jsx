@@ -1,6 +1,8 @@
+import {Link} from "react-router-dom";
 import {useState} from "react";
 import {useDispatch} from 'react-redux';
-import {searchCountries} from '../../redux/actions/actions'
+import {searchCountries} from '../../redux/actions/actions';
+import style from './SearchBar.module.css';
 
 
 export default function SearchBar(){
@@ -11,9 +13,11 @@ export default function SearchBar(){
     const handleChange = (event) => setName(event.target.value);
 
     return (
-        <div>
+        <div >
             <input type="search" onChange={handleChange} />
-            <button onClick={() => dispatch(searchCountries(name))} >Search</button>
+            <Link to="/home" >
+                <button onClick={() => dispatch(searchCountries(name))} >Search</button>
+            </Link>
         </div>
     );
 };

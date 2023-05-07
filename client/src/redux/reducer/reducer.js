@@ -105,11 +105,10 @@ const rootReducer = (state = initialState, {type, payload}) => {
         case FILTER_COUNTRIES_ACTIVITY:
             return {
                 ...state,
-                showCountries: state.showCountries.filter(country => {
-                    const {activities} = country;
+                showCountries: state.showCountries.filter(({activities}) => {
                     for(let i = 0; i < activities.length; i++){
                         if(activities[i].name === payload) return true;
-                    }
+                    };
                     return false;
                     })
             };

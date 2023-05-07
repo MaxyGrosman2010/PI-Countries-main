@@ -5,9 +5,9 @@
     align-items: center;
     height: 40%;
     width: 17%;
-    background: #8b3108;
+    background: rgb(126, 47, 16);
     border-radius: 15%;
-    box-shadow: 0px 0px 10px 2px #92410b;
+    box-shadow: 0px 0px 10px 2px rgb(78, 27, 7);
 }
 
 .contains img{

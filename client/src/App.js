@@ -30,8 +30,8 @@ function App() {
 
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<HomePage />} />
-        <Route path='/Activity' element={<FormPage />} />
-        <Route path='/Detail/:id' element={<DetailPage />} />
+        <Route path='/activity' element={<FormPage />} />
+        <Route path='/detail/:id' element={<DetailPage />} />
 
       </Routes>
     </div>
