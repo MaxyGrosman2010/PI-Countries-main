@@ -82,7 +82,7 @@ export default function FilterOrderBar(){
                 </select>
             </div>
 
-            <button onClick={() => resetFilters()}>All</button>
+            <button className={style.button} onClick={() => resetFilters()}>All</button>
 
         </div>
     );

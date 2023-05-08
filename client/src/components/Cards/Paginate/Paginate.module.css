@@ -5,7 +5,7 @@
     align-items: center;
     background: #000000;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 2px #000414;
+    box-shadow: 0px 0px 10px 2px #000000;
     width: 80%;
     margin-left: 10%;
 }
@@ -21,6 +21,21 @@
 }
 
 .button{
-    display: flex;
+    display: inline-block;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    background-color: rgb(107, 102, 102);
+    color: rgb(0, 0, 0);
+    border: 5px double rgb(78, 78, 78);
+    border-radius: 80%;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgb(196, 196, 33);
+    border: 5px double rgb(255, 0, 0);
+}
+
+.buttonDistance{
     margin: 0 5%;
 }

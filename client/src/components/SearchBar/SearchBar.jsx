@@ -15,7 +15,7 @@ export default function SearchBar(){
         <div >
             <input className={style.input} type="search" onChange={handleChange} />
             <Link to="/home" >
-                <button onClick={() => dispatch(searchCountries(name))} >Search</button>
+                <button className={style.button} onClick={() => dispatch(searchCountries(name))} >Search</button>
             </Link>
         </div>
     );

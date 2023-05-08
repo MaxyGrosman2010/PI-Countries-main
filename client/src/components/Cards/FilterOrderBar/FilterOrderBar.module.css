@@ -25,3 +25,20 @@
     color: rgb(251, 255, 0);
     background: #000000
 }
+
+.button{
+    display: inline-block;
+    padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgb(107, 102, 102);
+    color: rgb(0, 0, 0);
+    border: 5px double rgb(78, 78, 78);
+    border-radius: 80%;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgb(196, 196, 33);
+    border: 5px double rgb(255, 0, 0);
+}
