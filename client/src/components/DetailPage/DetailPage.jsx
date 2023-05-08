@@ -21,15 +21,14 @@ export default function DetailPage(){
     return(
         
             <div style={{
-                height: '100vh',
+                height: '100%',
                 backgroundImage: `url(${countryDetails.flag})`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
                 }}>
                 
                 <Link className={style.Link} to="/home">
-
                 <h2>{countryDetails.name}</h2>
                 <h2>Contienet: {countryDetails.continent}</h2>
                 <h2>Capital: {countryDetails.capital}</h2>

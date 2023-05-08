@@ -16,6 +16,7 @@ export default function FormPage(){
         season: "",
         countryID: []
     });
+    const showCountry = [];
 
     const handleChange = (event) => {
         setError(validation({
@@ -36,10 +37,9 @@ export default function FormPage(){
     };
 
     const closeCountry = (event) => {
-        const newCountryID = activity.countryID.filter(country => country !== event.target.value);
         setActivity({
             ...activity,
-            countryID: newCountryID
+            countryID: activity.countryID.filter(country => country !== event.target.value)
         })
     }
 
@@ -106,7 +106,7 @@ export default function FormPage(){
                 {activity.countryID && allCountries.map(country => 
                     activity.countryID.includes(country.id) ?
                         <div key={country.id} >
-                            <button value={country.id} onClick={closeCountry}>X</button>
+                            <button className={style.button} value={country.id} onClick={closeCountry}>X</button>
                             {country.name}
                         </div> : null)}
                     </div>

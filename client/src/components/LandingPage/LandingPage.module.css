@@ -20,6 +20,8 @@
     border-color: white;
     background-color: white;
     padding: 10px 10px 10px 10px;
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 .Link{
@@ -28,4 +30,5 @@
     align-self: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
+    cursor: pointer;
 }

@@ -23,7 +23,8 @@
 
 .options select{
     color: rgb(251, 255, 0);
-    background: #000000
+    background: #000000;
+    cursor: pointer;
 }
 
 .button{
