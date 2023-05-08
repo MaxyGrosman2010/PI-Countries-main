@@ -21,7 +21,7 @@ export default function DetailPage(){
     return(
         
             <div style={{
-                height: '100%',
+                height: '100vh',
                 backgroundImage: `url(${countryDetails.flag})`,
                 backgroundAttachment: 'fixed',
                 backgroundPosition: 'center',
