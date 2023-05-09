@@ -13,7 +13,7 @@ export default function DetailPage(){
         dispatch(countryDetail(id));
 
         return dispatch(resetDetail());
-    }, [id]);
+    }, []);
 
     const {countryDetails} = useSelector(state => state);
     const {activities} = countryDetails;
@@ -28,6 +28,7 @@ export default function DetailPage(){
                 backgroundSize: 'cover',
                 }}>
                 
+                <div className={style.background}>
                 <Link className={style.Link} to="/home">
                 <h2>{countryDetails.name}</h2>
                 <h2>Contienet: {countryDetails.continent}</h2>
@@ -48,6 +49,7 @@ export default function DetailPage(){
                 ) : "There are no activities"}</h2>
                 
                 </Link>
+                </div>
 
             </div>
     );

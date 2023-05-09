@@ -13,7 +13,9 @@ export default function NavigateBar(){
                 </Link>
             </div>
 
-            <SearchBar />
+            <div className={style.Search} >
+                <SearchBar />
+            </div>
 
             <div >
                 <Link className={style.Link} to="/activity">

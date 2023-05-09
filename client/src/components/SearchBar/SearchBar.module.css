@@ -1,5 +1,11 @@
+.contains{
+    display: flex;
+    flex-direction: row;
+}
+
 .input{
     text-decoration: none;
+    height: 60%;
     color: rgb(251, 255, 0);
     background-color: black;
 }
@@ -8,6 +14,7 @@
     display: inline-block;
     padding: 8px 8px 8px 8px;
     margin-left: 5px;
+    margin-bottom: 8px;
     text-align: center;
     background-color: rgb(107, 102, 102);
     color: rgb(0, 0, 0);

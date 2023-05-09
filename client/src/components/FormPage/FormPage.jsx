@@ -16,7 +16,6 @@ export default function FormPage(){
         season: "",
         countryID: []
     });
-    const showCountry = [];
 
     const handleChange = (event) => {
         setError(validation({

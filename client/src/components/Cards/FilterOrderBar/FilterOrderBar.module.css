@@ -3,10 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 92vh;
-    width: 22vh;
     background: #000000;
     box-shadow: 0px 0px 10px 2px #00020a;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .options{

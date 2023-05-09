@@ -12,7 +12,7 @@ export default function SearchBar(){
     const handleChange = (event) => setName(event.target.value);
 
     return (
-        <div >
+        <div className={style.contains} >
             <input className={style.input} type="search" onChange={handleChange} />
             <Link to="/home" >
                 <button className={style.button} onClick={() => dispatch(searchCountries(name))} >Search</button>
