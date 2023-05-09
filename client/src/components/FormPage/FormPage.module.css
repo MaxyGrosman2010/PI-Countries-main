@@ -98,6 +98,12 @@
     .form select{
         width: 65%;
     }
+    .form h2{
+        font-size: 100%;
+    }
+    .form label{
+        font-size: 100%;
+    }
 }
 
 @media screen and (max-width: 475px) {
