@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .options{
@@ -40,4 +38,52 @@
 .button:hover{
     background-color: rgb(196, 196, 33);
     border: 5px double rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 1280px) {
+    .options label{
+        font-size: 70%;
+    }
+    .options select{
+        font-size: 70%;
+    }
+    .button{
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .options label{
+        font-size: 60%;
+    }
+    .options select{
+        font-size: 60%;
+    }
+    .button{
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .options label{
+        font-size: 60%;
+    }
+    .options select{
+        font-size: 60%;
+    }
+    .button{
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .options label{
+        font-size: 50%;
+    }
+    .options select{
+        font-size: 50%;
+    }
+    .button{
+        font-size: 50%;
+    }
 }

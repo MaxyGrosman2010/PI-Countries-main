@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 850px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -17,7 +17,8 @@
     background: #20a9d3;
     border-radius: 10%;
     box-shadow: 0px 0px 10px 2px #25b0da;
-    height: 90%;
+    height: 80%;
+    width: 95%;
 }
 
 .paginate{
@@ -28,4 +29,28 @@
     border-top: 50px;
     padding-top: 50px;
     width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+    .cards{
+        height: 66%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .cards{
+        height: 64%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .cards{
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .cards{
+        height: 80%;
+    }
 }

@@ -1,6 +1,11 @@
 .contains{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
 }
 
 .input{
@@ -26,4 +31,44 @@
 .button:hover{
     background-color: rgb(192, 192, 22);
     border: 5px double rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 1280px) {
+    .input{
+        width: 60%;
+    }
+    .button{
+        font-size: 70%;
+        font-weight: bolder;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .input{
+        width: 60%;
+    }
+    .button{
+        font-size: 60%;
+        font-weight: bolder;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .input{
+        width: 60%;
+    }
+    .button{
+        font-size: 60%;
+        font-weight: bolder;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .input{
+        width: 50%;
+    }
+    .button{
+        font-size: 50%;
+        font-weight: bolder;
+    }
 }
