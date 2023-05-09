@@ -5,7 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  height: 100vh;
+  background-image: url("https://wallpapercave.com/wp/wp3837755.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 code {
