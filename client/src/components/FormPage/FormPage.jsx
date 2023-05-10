@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {createActivity} from "../../redux/actions/actions";
 import validation from "../../validation";
@@ -18,10 +18,12 @@ export default function FormPage(){
     });
 
     const handleChange = (event) => {
+        
         setError(validation({
             ...activity, 
             [event.target.name]: event.target.value
         }));
+
         setActivity({
             ...activity, 
             [event.target.name]: event.target.value
@@ -29,6 +31,12 @@ export default function FormPage(){
     };
 
     const handleCountries = (event) => {
+
+        setError(validation({
+            ...activity, 
+            [event.target.name]: event.target.value
+        }));
+
         setActivity({
             ...activity,
             countryID: [...activity.countryID, event.target.value]
@@ -55,7 +63,7 @@ export default function FormPage(){
                 countryID: ""
             });
             setError({});
-        }else window.alert("This isn't an tourist activity");
+        }else window.alert("Please complete the formularity to submit an Activity");
     };
 
     return (
@@ -69,7 +77,7 @@ export default function FormPage(){
 
                     <label >Name:</label>
                     <input name="name" value={activity.name} type="text" onChange={handleChange} />
-                    {error.name ? <div>{error.name}</div>: null}
+                    {error.name ? <div className={style.error} >{error.name}</div>: null}
 
                     <label >Difficulty:</label>
                     <select name="difficulty" value={activity.difficulty} onChange={handleChange} >
@@ -80,10 +88,11 @@ export default function FormPage(){
                         <option value={4}>4</option>
                         <option value={5}>5</option>
                     </select>
+                    {error.difficulty ? <div className={style.error} >{error.difficulty}</div> : null}
 
                     <label >Duration</label>
                     <input name="duration" value={activity.duration} type="number" onChange={handleChange} />
-                    {error.duration ? <div>{error.duration}</div> : null}
+                    {error.duration ? <div className={style.error} >{error.duration}</div> : null}
 
                     <label >Season</label>
                     <select name="season" value={activity.season} onChange={handleChange} >
@@ -93,6 +102,7 @@ export default function FormPage(){
                         <option value="Invierno">Winter</option>
                         <option value="Primavera">Spring</option>
                     </select>
+                    {error.season ? <div className={style.error} >{error.season}</div> : null}
 
                     <label >Country/Countries</label>
                     <select name="countryID" value={activity.countryID} onChange={handleCountries} >
@@ -100,6 +110,7 @@ export default function FormPage(){
                         {allCountries && allCountries.map(country => 
                             <option key={country.id} value={country.id}>{country.name}</option>)}
                     </select>
+                    {error.countryID ? <div className={style.error} >{error.countryID}</div> : null}
                     
                     <div className={style.tag} >
                 {activity.countryID && allCountries.map(country => 
@@ -110,7 +121,9 @@ export default function FormPage(){
                         </div> : null)}
                     </div>
                 
-                    <button className={style.button} type="submit">Submit</button>
+                    {Object.values(error).length === 0 ? 
+                        <button className={style.button} type="submit">Submit</button>
+                        : null}
 
                 </div>
             </form>

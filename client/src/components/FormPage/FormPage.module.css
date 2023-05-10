@@ -61,6 +61,14 @@
     color: rgb(16, 199, 32);
 }
 
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(97, 3, 3);
+}
+
 @media screen and (max-width: 1536px) {
     .contains{
         width: 1280px;

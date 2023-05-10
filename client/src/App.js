@@ -19,7 +19,6 @@ function App() {
 
   useEffect(() => {
     dispatch(getAllCountries());
-    dispatch(getAllActivities());
   }, []);
 
   return (
