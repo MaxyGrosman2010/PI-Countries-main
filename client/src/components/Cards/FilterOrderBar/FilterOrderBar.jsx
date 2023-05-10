@@ -11,27 +11,17 @@ export default function FilterOrderBar(){
 
     const handleChange = (event) =>{
 
-        if(event.target.name === "id") {
-
+        if(event.target.name === "id") 
             dispatch(orderCountriesId(event.target.value));
-            event.target.value = "sort";
 
-        } else if(event.target.name === "population") {
-
+        else if(event.target.name === "population") 
             dispatch(orderCountriesPopulation(event.target.value));
-            event.target.value = "sort";
 
-        }else if(event.target.name === "continent") {
-
+        else if(event.target.name === "continent") 
             dispatch(filterCountriesContinent(event.target.value));
-            event.target.value = "filter";
 
-        }else if(event.target.name === "activity") {
-
+        else if(event.target.name === "activity") 
             dispatch(filterCountriesActivity(event.target.value));
-            event.target.value = "filter";
-
-        };
 
         return dispatch(reloadPaginate());
     };
