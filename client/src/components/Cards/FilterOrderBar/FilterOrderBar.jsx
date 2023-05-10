@@ -3,11 +3,14 @@ import {orderCountriesId, orderCountriesPopulation,
     filterCountriesContinent, filterCountriesActivity, resetCountries, 
     reloadPaginate} from "../../../redux/actions/actions";
 import style from './FilterOrderBar.module.css';
+import { useState } from "react";
 
 export default function FilterOrderBar(){
 
     const dispatch = useDispatch();
+    const [filterContinent, setFilterContinent] = useState("filter");
     const {allContinents, allActivities} = useSelector(state => state);
+    console.log(filterContinent);
 
     const handleChange = (event) =>{
 
@@ -17,8 +20,10 @@ export default function FilterOrderBar(){
         else if(event.target.name === "population") 
             dispatch(orderCountriesPopulation(event.target.value));
 
-        else if(event.target.name === "continent") 
+        else if(event.target.name === "continent") {
             dispatch(filterCountriesContinent(event.target.value));
+            setFilterContinent(event.target.value);
+        }
 
         else if(event.target.name === "activity") 
             dispatch(filterCountriesActivity(event.target.value));
@@ -27,7 +32,11 @@ export default function FilterOrderBar(){
     };
 
     const resetFilters = () => {
+
         dispatch(resetCountries());
+
+        setFilterContinent("filter");
+
         return dispatch(reloadPaginate());
     };
 
@@ -55,7 +64,7 @@ export default function FilterOrderBar(){
 
             <div className={style.options} >
                 <label >Filter Continent:</label>
-                <select name="continent" onChange={handleChange} >
+                <select name="continent" value={filterContinent} onChange={handleChange} >
                     <option disabled selected value="filter">Select Continent</option>
                     {allContinents && allContinents.map(continent => 
                         <option key={continent} value={continent}>{continent}</option>)}
