@@ -14,14 +14,14 @@ export default function Paginate(){
         <div className={style.contains} >
             {numPage > 1 ? ( 
                 <div className={style.buttonDistance}> 
-                    <button className={style.button} onClick={prev}>{numPage - 1}</button>
+                    <button className={style.button} onClick={prev}>{`< ${numPage - 1}`}</button>
                 </div>) : null}
 
             <div className={style.number} >{numPage}</div>
 
             {numPage < cantPages ? ( 
             <div className={style.buttonDistance}>
-                <button className={style.button} onClick={next}>{numPage + 1}</button>
+                <button className={style.button} onClick={next}>{`${numPage + 1} >`}</button>
             </div> ) : null}
         </div>
     );
