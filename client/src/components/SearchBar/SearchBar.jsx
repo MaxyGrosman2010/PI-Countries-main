@@ -10,7 +10,7 @@ export default function SearchBar(){
     const dispatch = useDispatch();
 
     const handleChange = (event) => setName(event.target.value);
-
+    
     return (
         <div className={style.contains} >
             <input className={style.input} type="search" onChange={handleChange} />

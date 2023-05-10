@@ -15,7 +15,7 @@ function App() {
 
   const dispatch = useDispatch();
   const {pathname} = useLocation();
-  const navBar = ['/home', '/activity']
+  const dictionary = {'/home': true, '/activity': true};
 
   useEffect(() => {
     dispatch(getAllCountries());
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      {navBar.includes(pathname) && <div className="navBar"> <NavigateBar /> </div>}
+      {dictionary[pathname] && <div className="navBar"> <NavigateBar /> </div>}
       <Routes>
 
         <Route path='/' element={<LandingPage />} />
