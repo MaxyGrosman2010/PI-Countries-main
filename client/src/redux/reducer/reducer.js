@@ -1,7 +1,7 @@
 import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, SEARCH_COUNTRIES, 
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, ORDER_COUNTRIES_ID, ORDER_COUNTRIES_POPULATION, 
-    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, 
-    RELOAD_PAGINATE} from "../actions/types";
+    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, FIRST_PAGE,
+    LAST_PAGE, RELOAD_PAGINATE} from "../actions/types";
 
 const initialState ={
     allCountries: [],
@@ -113,6 +113,18 @@ const rootReducer = (state = initialState, {type, payload}) => {
                     };
                     return false;
                     })
+            };
+
+        case FIRST_PAGE:
+            return{
+                ...state,
+                numPage: 1
+            };
+
+        case LAST_PAGE:
+            return{
+                ...state,
+                numPage: state.cantPages
             };
 
         case NEXT_PAGE:

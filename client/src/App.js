@@ -17,10 +17,6 @@ function App() {
   const {pathname} = useLocation();
   const dictionary = {'/home': true, '/activity': true};
 
-  useEffect(() => {
-    dispatch(getAllCountries());
-  }, []);
-
   return (
     <div className="App">
       {dictionary[pathname] && <div className="navBar"> <NavigateBar /> </div>}

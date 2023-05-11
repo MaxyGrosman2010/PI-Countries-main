@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {GET_ALL_COUNTRIES, RESET_COUNTRIES, COUNTRY_DETAIL, RESET_DETAIL, SEARCH_COUNTRIES, 
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, ORDER_COUNTRIES_ID, ORDER_COUNTRIES_POPULATION, 
-    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, 
-    RELOAD_PAGINATE} from "./types";
+    FILTER_COUNTRIES_CONTINENT, FILTER_COUNTRIES_ACTIVITY, NEXT_PAGE, PREV_PAGE, FIRST_PAGE, 
+    LAST_PAGE, RELOAD_PAGINATE} from "./types";
 
 const endPoint = "http://localhost:3001";
 
@@ -14,7 +14,7 @@ export const getAllCountries = () => {
                 type: GET_ALL_COUNTRIES,
                 payload: data
             });
-        }catch(error){ return error.message}
+        }catch(error){window.alert(error.message)}
     };
 };
 
@@ -31,7 +31,7 @@ export const countryDetail = (id) => {
                 payload: data
             });
 
-        }catch(error){return error.message};
+        }catch(error){window.alert(error.message)};
     };
 };
 
@@ -46,7 +46,7 @@ export const searchCountries = (name) => {
                 type: SEARCH_COUNTRIES,
                 payload: data
             });
-        }catch(error){return error.message};
+        }catch(error){window.alert(error.message)};
     };
 };
 
@@ -60,7 +60,7 @@ export const getAllActivities = () => {
                 payload: data
             });
         };
-    }catch(error){return error.message};
+    }catch(error){window.alert(error.message)};
 };
 
 export const createActivity = (activity) => {
@@ -72,7 +72,7 @@ export const createActivity = (activity) => {
                 type: CREATE_ACTIVITY,
                 payload: data
             });
-        }catch(error){return error.message};
+        }catch(error){window.alert(error.message)};
     };
 };
 
@@ -102,6 +102,14 @@ export const filterCountriesActivity = (filter) => {
         type: FILTER_COUNTRIES_ACTIVITY,
         payload: filter
     };
+};
+
+export const firstPage = () => {
+    return {type: FIRST_PAGE};
+};
+
+export const lastPage = () => {
+    return {type: LAST_PAGE};
 };
 
 export const nextPage = () => {

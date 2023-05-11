@@ -121,15 +121,12 @@ export default function FormPage(){
                         </div> : null)}
                     </div>
                 
-                    {Object.values(error).length === 0 ? 
+                    {activity.name !== "" && Object.values(error).length === 0 ? 
                         <button className={style.button} type="submit">Submit</button>
                         : null}
 
                 </div>
             </form>
-            
-            
-
         </div>
     );
 };
