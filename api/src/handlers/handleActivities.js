@@ -1,5 +1,4 @@
-require('dotenv').config();
-const {STATUS_OK, STATUS_ERROR, SERVER_ERROR} = process.env;
+const {STATUS_OK, STATUS_ERROR, SERVER_ERROR} = require('../utilities/statusCodes');
 const {createActivity, getActivities, findCountryById, 
     linkActivityToCountry, findActivity} = require('../controllers/index');
 
